@@ -1,0 +1,37 @@
+Kali pattern create:
+# cd /usr/share/metasploit-framework/tools/exploit/
+# ./pattern_create.rb 1000
+
+Kali pattern offset:
+# cd /usr/share/metasploit-framework/tools/exploit/
+# ./pattern_offset.rb -l 1000 -q [EIP pattern]
+
+Immunity DBG mona.py pattern create:
+!mona pattern_create 10000
+
+Immunity DBG mona.py pattern offset:
+!mona pattern_offset [EIP pattern]
+
+========================= JMP ESP ===============================
+
+Buffer = "X" * [number] + [JMP ESP] + shellcode
+
+In OllyDBG find instruction:
+Search for > All Command 
+JMP ESP
+
+In mona.py
+!mona jmp -r ESP -m kernel32.dll
+
+========================= POP POP RET ===============================
+
+Buffer = "X" * [number] + [POP POP RET] + [NOP NOP] + [JMP ESP] + shellcode
+
+In OllyDBG
+Search for > Sequence of commands or Search for > All sequences
+POP r32
+POP r32
+RETN
+
+In mona.py
+!mona findwild -s "pop r32#pop r32#ret" -m kernel32.dll
