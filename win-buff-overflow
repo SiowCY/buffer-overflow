@@ -14,7 +14,7 @@ Immunity DBG mona.py pattern offset:
 
 ========================= JMP ESP ===============================
 
-Buffer = "X" * [number] + [JMP ESP] + [NOP] * number (for extra buffer, in case some random buffer required) + shellcode
+Buffer = "X" * [number] + [JMP ESP] + [NOP] * number (in case extra random buffer required) + shellcode
 
 In OllyDBG find instruction:
 Search for > All Command 
@@ -25,7 +25,7 @@ In mona.py
 
 ========================= POP POP RET ===============================
 
-Buffer = "X" * [number] + [POP POP RET] + [NOP NOP] + [JMP ESP] + [NOP] * number (for extra buffer, in case some random buffer required) + shellcode
+Buffer = "X" * [number] + [POP POP RET] + [NOP NOP] + [JMP ESP] + [NOP] * number (in case extra random buffer required) + shellcode
 
 In OllyDBG
 Search for > Sequence of commands or Search for > All sequences
