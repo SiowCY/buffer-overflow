@@ -7,7 +7,7 @@ Kali pattern offset:
 # ./pattern_offset.rb -l 1000 -q [EIP pattern]
 
 Immunity DBG mona.py pattern create:
-!mona pattern_create 10000
+!mona pattern_create 1000
 
 Immunity DBG mona.py pattern offset:
 !mona pattern_offset [EIP pattern]
