@@ -35,3 +35,39 @@ RETN
 
 In mona.py
 !mona findwild -s "pop r32#pop r32#ret" -m kernel32.dll
+
+========================= Radare2 rasm2 - hex dis/assemble =========================
+
+Assemble
+$ rasm2 -a x86 -b 32 'mov eax, 33'
+b821000000
+
+$ echo 'push eax;nop;nop' | rasm2 -f -
+5090
+
+$ rasm2 -a x86 -b 32 -f file.asm
+
+Disassemble
+
+$ rasm2 -a x86 -b 32 -d '90'
+nop
+
+========================= Radare2 rax2 - hex, ascii, bin convert =========================
+
+$ rax2 0x345
+837
+
+$ rax2 837
+0x345
+
+$ rax2 44.44f
+Fx8fc23142
+
+$ rax2 0xfffffffd
+-3
+
+$ rax2 -3
+0xfffffffd
+
+$ rax2 -s "41 42 43 44"
+ABCD
