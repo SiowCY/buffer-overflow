@@ -1,6 +1,6 @@
 Kali pattern create:
 # cd /usr/share/metasploit-framework/tools/exploit/
-# ./pattern_create.rb 1000
+# ./pattern_create.rb -l 1000
 
 Kali pattern offset:
 # cd /usr/share/metasploit-framework/tools/exploit/
